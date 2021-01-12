@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "recepcaoTipoSanguineo": {
+      "home": {
+        "title": "Recepcao Tipo Sanguineos",
+        "createLabel": "Criar novo Recepcao Tipo Sanguineo",
+        "createOrEditLabel": "Criar ou editar Recepcao Tipo Sanguineo",
+        "notFound": "Nenhum Recepcao Tipo Sanguineo encontrado"
+      },
+      "created": "Um novo Recepcao Tipo Sanguineo foi criado com o identificador {{ param }}",
+      "updated": "Um Recepcao Tipo Sanguineo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Recepcao Tipo Sanguineo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Recepcao Tipo Sanguineo {{ id }}?"
+      },
+      "detail": {
+        "title": "Recepcao Tipo Sanguineo"
+      },
+      "podeReceberDe": "Pode Receber De",
+      "listaTipoSanguineos": "Lista Tipo Sanguineos"
+    }
+  }
+}

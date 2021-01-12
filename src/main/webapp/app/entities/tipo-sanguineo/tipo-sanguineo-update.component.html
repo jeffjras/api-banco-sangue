@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tipo-sanguineo-heading" jhiTranslate="bancoSangueApp.tipoSanguineo.home.createOrEditLabel">Create or edit a Tipo Sanguineo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoSangueApp.tipoSanguineo.descricao" for="field_descricao">Descricao</label>
+                    <input type="text" class="form-control" name="descricao" id="field_descricao"
+                           formControlName="descricao"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoSangueApp.tipoSanguineo.doacaoTipoSanguineo" for="field_doacaoTipoSanguineo">Doacao Tipo Sanguineo</label>
+                    <select class="form-control" id="field_doacaoTipoSanguineo" name="doacaoTipoSanguineo" formControlName="doacaoTipoSanguineoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="doacaoTipoSanguineoOption.id" *ngFor="let doacaoTipoSanguineoOption of doacaotiposanguineos; trackBy: trackById">{{ doacaoTipoSanguineoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bancoSangueApp.tipoSanguineo.recepcaoTipoSanguineo" for="field_recepcaoTipoSanguineo">Recepcao Tipo Sanguineo</label>
+                    <select class="form-control" id="field_recepcaoTipoSanguineo" name="recepcaoTipoSanguineo" formControlName="recepcaoTipoSanguineoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="recepcaoTipoSanguineoOption.id" *ngFor="let recepcaoTipoSanguineoOption of recepcaotiposanguineos; trackBy: trackById">{{ recepcaoTipoSanguineoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
