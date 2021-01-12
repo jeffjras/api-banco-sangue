@@ -47,6 +47,13 @@ public class CacheConfiguration {
             createCache(cm, com.wktech.bancosangue.domain.User.class.getName());
             createCache(cm, com.wktech.bancosangue.domain.Authority.class.getName());
             createCache(cm, com.wktech.bancosangue.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.wktech.bancosangue.domain.TipoSanguineo.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.TipoSanguineo.class.getName() + ".listaCandidatos");
+            createCache(cm, com.wktech.bancosangue.domain.DoacaoTipoSanguineo.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.DoacaoTipoSanguineo.class.getName() + ".listaTipoSanguineos");
+            createCache(cm, com.wktech.bancosangue.domain.RecepcaoTipoSanguineo.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RecepcaoTipoSanguineo.class.getName() + ".listaTipoSanguineos");
+            createCache(cm, com.wktech.bancosangue.domain.Candidato.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

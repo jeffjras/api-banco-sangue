@@ -1,0 +1,46 @@
+entity TipoSanguineo {
+	id Integer,
+    descricao String
+}
+
+entity DoacaoTipoSanguineo {
+	id Integer,
+    podeDoarPara String
+}
+entity RecepcaoTipoSanguineo {
+	id Integer,
+    podeReceberDe String    
+}
+entity Candidato{
+     id Integer,
+     nome String,
+     cpf String,
+     rg String,
+     dataNasc LocalDate,
+     sexo String,
+     mae String,
+     pai String,
+     email String,
+     cep String,
+     endereco String,
+     numero String,
+     bairro String,
+     cidade String,
+     estado String,
+     telefoneFixo String,
+     celular String,
+     altura Double,
+     peso Double,
+     tipoSangue String
+}
+
+relationship OneToMany {	
+    DoacaoTipoSanguineo{listaTipoSanguineos} to TipoSanguineo{doacaoTipoSanguineo},
+    RecepcaoTipoSanguineo{listaTipoSanguineos} to TipoSanguineo{recepcaoTipoSanguineo},
+    TipoSanguineo{listaCandidatos} to Candidato{tipoSanguineo}
+}
+dto * with mapstruct
+service all with serviceClass
+paginate TipoSanguineo with infinite-scroll
+paginate Candidato with pagination
+

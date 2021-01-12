@@ -1,0 +1,41 @@
+{
+  "bancoSangueApp": {
+    "candidato": {
+      "home": {
+        "title": "Candidatoes",
+        "createLabel": "Criar novo Candidato",
+        "createOrEditLabel": "Criar ou editar Candidato",
+        "notFound": "Nenhum Candidato encontrado"
+      },
+      "created": "Um novo Candidato foi criado com o identificador {{ param }}",
+      "updated": "Um Candidato foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Candidato foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Candidato {{ id }}?"
+      },
+      "detail": {
+        "title": "Candidato"
+      },
+      "nome": "Nome",
+      "cpf": "Cpf",
+      "rg": "Rg",
+      "dataNasc": "Data Nasc",
+      "sexo": "Sexo",
+      "mae": "Mae",
+      "pai": "Pai",
+      "email": "Email",
+      "cep": "Cep",
+      "endereco": "Endereco",
+      "numero": "Numero",
+      "bairro": "Bairro",
+      "cidade": "Cidade",
+      "estado": "Estado",
+      "telefoneFixo": "Telefone Fixo",
+      "celular": "Celular",
+      "altura": "Altura",
+      "peso": "Peso",
+      "tipoSangue": "Tipo Sangue",
+      "tipoSanguineo": "Tipo Sanguineo"
+    }
+  }
+}

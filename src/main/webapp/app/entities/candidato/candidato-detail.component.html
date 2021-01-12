@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="candidato">
+            <h2><span jhiTranslate="bancoSangueApp.candidato.detail.title">Candidato</span> {{ candidato.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bancoSangueApp.candidato.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ candidato.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.cpf">Cpf</span></dt>
+                <dd>
+                    <span>{{ candidato.cpf }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.rg">Rg</span></dt>
+                <dd>
+                    <span>{{ candidato.rg }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.dataNasc">Data Nasc</span></dt>
+                <dd>
+                    <span>{{ candidato.dataNasc }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.sexo">Sexo</span></dt>
+                <dd>
+                    <span>{{ candidato.sexo }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.mae">Mae</span></dt>
+                <dd>
+                    <span>{{ candidato.mae }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.pai">Pai</span></dt>
+                <dd>
+                    <span>{{ candidato.pai }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.email">Email</span></dt>
+                <dd>
+                    <span>{{ candidato.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.cep">Cep</span></dt>
+                <dd>
+                    <span>{{ candidato.cep }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.endereco">Endereco</span></dt>
+                <dd>
+                    <span>{{ candidato.endereco }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ candidato.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.bairro">Bairro</span></dt>
+                <dd>
+                    <span>{{ candidato.bairro }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.cidade">Cidade</span></dt>
+                <dd>
+                    <span>{{ candidato.cidade }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.estado">Estado</span></dt>
+                <dd>
+                    <span>{{ candidato.estado }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.telefoneFixo">Telefone Fixo</span></dt>
+                <dd>
+                    <span>{{ candidato.telefoneFixo }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.celular">Celular</span></dt>
+                <dd>
+                    <span>{{ candidato.celular }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.altura">Altura</span></dt>
+                <dd>
+                    <span>{{ candidato.altura }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.peso">Peso</span></dt>
+                <dd>
+                    <span>{{ candidato.peso }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.tipoSangue">Tipo Sangue</span></dt>
+                <dd>
+                    <span>{{ candidato.tipoSangue }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.candidato.tipoSanguineo">Tipo Sanguineo</span></dt>
+                <dd>
+                    <div *ngIf="candidato.tipoSanguineoId">
+                        <a [routerLink]="['/tipo-sanguineo', candidato.tipoSanguineoId, 'view']">{{ candidato.tipoSanguineoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/candidato', candidato.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "DoacaoTipoSanguineo",
+  "fields": [
+    {
+      "fieldName": "podeDoarPara",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tipoSanguineo",
+      "otherEntityRelationshipName": "doacaoTipoSanguineo",
+      "relationshipName": "listaTipoSanguineos"
+    }
+  ],
+  "changelogDate": "20210112023150",
+  "entityTableName": "doacao_tipo_sanguineo",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

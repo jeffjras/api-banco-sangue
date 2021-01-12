@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "doacaoTipoSanguineo": {
+      "home": {
+        "title": "Doacao Tipo Sanguineos",
+        "createLabel": "Create a new Doacao Tipo Sanguineo",
+        "createOrEditLabel": "Create or edit a Doacao Tipo Sanguineo",
+        "notFound": "No Doacao Tipo Sanguineos found"
+      },
+      "created": "A new Doacao Tipo Sanguineo is created with identifier {{ param }}",
+      "updated": "A Doacao Tipo Sanguineo is updated with identifier {{ param }}",
+      "deleted": "A Doacao Tipo Sanguineo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Doacao Tipo Sanguineo {{ id }}?"
+      },
+      "detail": {
+        "title": "Doacao Tipo Sanguineo"
+      },
+      "podeDoarPara": "Pode Doar Para",
+      "listaTipoSanguineos": "Lista Tipo Sanguineos"
+    }
+  }
+}

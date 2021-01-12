@@ -1,0 +1,101 @@
+{
+  "name": "Candidato",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataNasc",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mae",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pai",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cep",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "endereco",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bairro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cidade",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefoneFixo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "celular",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "altura",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "peso",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tipoSangue",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoSanguineo",
+      "otherEntityRelationshipName": "listaCandidatos",
+      "relationshipName": "tipoSanguineo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210112023350",
+  "entityTableName": "candidato",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

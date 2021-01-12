@@ -1,0 +1,42 @@
+{
+  "name": "TipoSanguineo",
+  "fields": [
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "candidato",
+      "otherEntityRelationshipName": "tipoSanguineo",
+      "relationshipName": "listaCandidatos"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "doacaoTipoSanguineo",
+      "otherEntityRelationshipName": "listaTipoSanguineos",
+      "relationshipName": "doacaoTipoSanguineo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "recepcaoTipoSanguineo",
+      "otherEntityRelationshipName": "listaTipoSanguineos",
+      "relationshipName": "recepcaoTipoSanguineo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210112023050",
+  "entityTableName": "tipo_sanguineo",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

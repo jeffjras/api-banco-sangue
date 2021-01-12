@@ -1,0 +1,28 @@
+{
+  "name": "RecepcaoTipoSanguineo",
+  "fields": [
+    {
+      "fieldName": "podeReceberDe",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tipoSanguineo",
+      "otherEntityRelationshipName": "recepcaoTipoSanguineo",
+      "relationshipName": "listaTipoSanguineos"
+    }
+  ],
+  "changelogDate": "20210112023250",
+  "entityTableName": "recepcao_tipo_sanguineo",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
