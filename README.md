@@ -5,7 +5,7 @@ Este aplicativo foi gerado utilizando JHipster 6.10.5.
 ## Definições importantes
 
 Projeto possui API e front-end Angular de forma monolítica (fullstack on server).
-Sistema possui dois logins: Admin e User com perfis diferentes.
+A base de dados do projeto foi configurada para dois logins: Admin e User com perfis diferentes.
 
 Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina e configurado com um usuário chamado root e senha root (privilégios admin) nesta instância local.
 
