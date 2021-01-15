@@ -5,13 +5,9 @@ Este aplicativo foi gerado utilizando JHipster 6.10.5.
 ## Definições importantes
 
 Projeto possui API e front-end Angular de forma monolítica (fullstack on server).
-Sistema possui dois logins: Admin e User com perfis diferentes
+Sistema possui dois logins: Admin e User com perfis diferentes.
 
-### Para importar os dados basta acessar como admin e acionar a opção API e selecionar o método POST /api/candidatoes/importar e clicar no botão "Try Out" e após habitar a edição, inserir os dados do arquivo json,por fim, clicar em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados carregados de Candidatos 
-
-Obs.: Os Relatórios estão disponíveis no menu Entidades com o nome de cada um deles.
-
-Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina que será executada o projeto e tem que ter um usuário root e senha root (com privilégios adm) nesta instância local.
+Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina e configurado com um usuário chamado root e senha root (privilégios admin) nesta instância local.
 
 1. Crie um diretorio onde deseje configurar o projeto
 2. Clone o projeto usando git:
@@ -20,6 +16,10 @@ Antes de executar os passos a seguir o banco de dados MySQL deve existir na máq
    Execute ./mvnw
 4. Aguarde até a finalização e acesse o projeto por um navegador de sua preferência:
    http://localhost:8080
+   
+#### Para importar os dados de Candidatos acesse o sistema como administrador e escolhar a opção do item de menu API, em seguida localize e clique no método POST chamado /api/candidatoes/importar e logo em seguida clique no botão "Try Out" para habilitar a edição e então insira os dados do arquivo json, e por fim, clique em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados carregados de Candidatos 
+
+Observação: Os Relatórios estão disponíveis no menu Entidades com o nome de cada um deles.   
 
 ## Desenvolvimento (caso não possua configuração node, execute os passos com npm )
 
