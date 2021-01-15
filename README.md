@@ -1,4 +1,6 @@
 # bancoSangue WK
+Banco Sangue 0.0.1-SNAPSHOT
+
 
 Este aplicativo foi gerado utilizando JHipster 6.10.5. Uma plataforma provedora de frameworks e dependências para projetos Java e Angular. Ele gerencia as bibliotecas entre outros recursos avançados.
 
