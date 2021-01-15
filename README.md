@@ -8,7 +8,7 @@ Projeto possui API e front-end Angular de forma monolítica, sobe o ambiente ao 
 Sistema possui dois logins: Admin e User com perfis diferentes
 Para importar os dados basta acessar como admin e acionar a opção API e selecionar o método importCandidato e colocar os dados e clicar em executar
 
-Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina que será executada o projeto e tem que ter um usuário root e senha root nesta instância local.
+Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina que será executada o projeto e tem que ter um usuário root e senha root (com privilégios adm) nesta instância local.
 
 1. Crie um diretorio onde deseje configurar o projeto
 2. Clone o projeto usando git:
