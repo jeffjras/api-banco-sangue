@@ -1,6 +1,6 @@
 # bancoSangue
 
-This application was generated using JHipster 6.10.5, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.5](https://www.jhipster.tech/documentation-archive/v6.10.5).
+Este aplicativo foi gerado usando JHipster 6.10.5, você pode encontrar documentação e ajuda em [https://www.jhipster.tech/documentation-archive/v6.10.5](https://www.jhipster.tech/documentation-archive/v6.10.5).
 
 ## Development
 
