@@ -2,7 +2,7 @@
 
 Este aplicativo foi gerado utilizando JHipster 6.10.5.
 
-#Definições importantes
+## Definições importantes
 
 Projeto possui API e front-end Angular de forma monolítica, sobe o ambiente ao mesmo tempo.
 Sistema possui dois logins: Admin e User com perfis diferentes
