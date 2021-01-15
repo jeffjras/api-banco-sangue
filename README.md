@@ -4,7 +4,7 @@ Este aplicativo foi gerado utilizando JHipster 6.10.5.
 
 ## Definições importantes
 
-Projeto possui API e front-end Angular de forma monolítica, sobe o ambiente ao mesmo tempo.
+Projeto possui API e front-end Angular de forma monolítica (fullstack on server).
 Sistema possui dois logins: Admin e User com perfis diferentes
 Para importar os dados basta acessar como admin e acionar a opção API e selecionar o método importCandidato e colocar os dados do arquivo json e clicar em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados de Candidatos
 
