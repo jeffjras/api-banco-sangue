@@ -1,13 +1,19 @@
 package com.wktech.bancosangue.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * A Candidato.
@@ -16,67 +22,87 @@ import java.time.LocalDate;
 @Table(name = "candidato")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Candidato implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("nome")
     @Column(name = "nome")
     private String nome;
 
+    @JsonProperty("cpf")
     @Column(name = "cpf")
     private String cpf;
 
+    @JsonProperty("rg")
     @Column(name = "rg")
     private String rg;
 
+    @JsonProperty("data_nasc")
     @Column(name = "data_nasc")
-    private LocalDate dataNasc;
+    //@JsonFormat(pattern = "YYYY-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
+    private Date dataNasc;
 
+    @JsonProperty("sexo")
     @Column(name = "sexo")
     private String sexo;
 
+    @JsonProperty("mae")
     @Column(name = "mae")
     private String mae;
 
+    @JsonProperty("pai")
     @Column(name = "pai")
     private String pai;
 
+    @JsonProperty("email")
     @Column(name = "email")
     private String email;
 
+    @JsonProperty("cep")
     @Column(name = "cep")
     private String cep;
 
+    @JsonProperty("endereco")
     @Column(name = "endereco")
     private String endereco;
 
+    @JsonProperty("numero")
     @Column(name = "numero")
     private String numero;
 
+    @JsonProperty("bairro")
     @Column(name = "bairro")
     private String bairro;
 
+    @JsonProperty("cidade")
     @Column(name = "cidade")
     private String cidade;
 
+    @JsonProperty("estado")
     @Column(name = "estado")
     private String estado;
 
+    @JsonProperty("telefone_fixo")
     @Column(name = "telefone_fixo")
     private String telefoneFixo;
 
+    @JsonProperty("celular")
     @Column(name = "celular")
     private String celular;
 
+    @JsonProperty("altura")
     @Column(name = "altura")
     private Double altura;
 
+    @JsonProperty("peso")
     @Column(name = "peso")
     private Double peso;
 
+    @JsonProperty("tipo_sanquineo")
     @Column(name = "tipo_sangue")
     private String tipoSangue;
 
@@ -84,7 +110,6 @@ public class Candidato implements Serializable {
     @JsonIgnoreProperties(value = "listaCandidatos", allowSetters = true)
     private TipoSanguineo tipoSanguineo;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -132,16 +157,16 @@ public class Candidato implements Serializable {
         this.rg = rg;
     }
 
-    public LocalDate getDataNasc() {
+    public Date getDataNasc() {
         return dataNasc;
     }
 
-    public Candidato dataNasc(LocalDate dataNasc) {
+    public Candidato dataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
         return this;
     }
 
-    public void setDataNasc(LocalDate dataNasc) {
+    public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 
@@ -352,6 +377,7 @@ public class Candidato implements Serializable {
     public void setTipoSanguineo(TipoSanguineo tipoSanguineo) {
         this.tipoSanguineo = tipoSanguineo;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

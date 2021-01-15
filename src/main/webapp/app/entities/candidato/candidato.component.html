@@ -1,11 +1,11 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="bancoSangueApp.candidato.home.title">Candidatoes</span>
+        <span jhiTranslate="bancoSangueApp.candidato.home.title">Candidatos</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-candidato" [routerLink]="['/candidato/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  jhiTranslate="bancoSangueApp.candidato.home.createLabel">
-            Create a new Candidato
+            Criar novo
             </span>
         </button>
     </h2>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="candidatoes?.length === 0">
-        <span jhiTranslate="bancoSangueApp.candidato.home.notFound">No candidatoes found</span>
+        <span jhiTranslate="bancoSangueApp.candidato.home.notFound">Nenhum Candidato encontrado.</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="candidatoes && candidatoes.length > 0">
@@ -24,25 +24,13 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nome"><span jhiTranslate="bancoSangueApp.candidato.nome">Nome</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cpf"><span jhiTranslate="bancoSangueApp.candidato.cpf">Cpf</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="rg"><span jhiTranslate="bancoSangueApp.candidato.rg">Rg</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dataNasc"><span jhiTranslate="bancoSangueApp.candidato.dataNasc">Data Nasc</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="sexo"><span jhiTranslate="bancoSangueApp.candidato.sexo">Sexo</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="mae"><span jhiTranslate="bancoSangueApp.candidato.mae">Mae</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="pai"><span jhiTranslate="bancoSangueApp.candidato.pai">Pai</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="bancoSangueApp.candidato.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cep"><span jhiTranslate="bancoSangueApp.candidato.cep">Cep</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="endereco"><span jhiTranslate="bancoSangueApp.candidato.endereco">Endereco</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="bancoSangueApp.candidato.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="bairro"><span jhiTranslate="bancoSangueApp.candidato.bairro">Bairro</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cidade"><span jhiTranslate="bancoSangueApp.candidato.cidade">Cidade</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="estado"><span jhiTranslate="bancoSangueApp.candidato.estado">Estado</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="telefoneFixo"><span jhiTranslate="bancoSangueApp.candidato.telefoneFixo">Telefone Fixo</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="celular"><span jhiTranslate="bancoSangueApp.candidato.celular">Celular</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cpf"><span jhiTranslate="bancoSangueApp.candidato.cpf">Cpf</span> <fa-icon icon="sort"></fa-icon></th>                    
+                    <!-- <th scope="col"  jhiSortBy="dataNasc"><span jhiTranslate="bancoSangueApp.candidato.dataNasc">Data Nasc.</span> <fa-icon icon="sort"></fa-icon></th>-->
+                    <th scope="col"  jhiSortBy="sexo"><span jhiTranslate="bancoSangueApp.candidato.sexo">Sexo</span> <fa-icon icon="sort"></fa-icon></th>                    
+                    <th scope="col"  jhiSortBy="estado"><span jhiTranslate="bancoSangueApp.candidato.estado">Estado</span> <fa-icon icon="sort"></fa-icon></th>                    
                     <th scope="col"  jhiSortBy="altura"><span jhiTranslate="bancoSangueApp.candidato.altura">Altura</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="peso"><span jhiTranslate="bancoSangueApp.candidato.peso">Peso</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="tipoSangue"><span jhiTranslate="bancoSangueApp.candidato.tipoSangue">Tipo Sangue</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="tipoSanguineoId"><span jhiTranslate="bancoSangueApp.candidato.tipoSanguineo">Tipo Sanguineo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="peso"><span jhiTranslate="bancoSangueApp.candidato.peso">Peso</span> <fa-icon icon="sort"></fa-icon></th!-->
+                    <!-- <th scope="col"  jhiSortBy="tipoSangue"><span jhiTranslate="bancoSangueApp.candidato.tipoSangue">Tipo Sangue</span> <fa-icon icon="sort"></fa-icon></th>-->                    
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -50,24 +38,13 @@
                 <tr *ngFor="let candidato of candidatoes ;trackBy: trackId">
                     <td><a [routerLink]="['/candidato', candidato.id, 'view']">{{ candidato.id }}</a></td>
                     <td>{{ candidato.nome }}</td>
-                    <td>{{ candidato.cpf }}</td>
-                    <td>{{ candidato.rg }}</td>
-                    <td>{{ candidato.dataNasc | date:'mediumDate' }}</td>
-                    <td>{{ candidato.sexo }}</td>
-                    <td>{{ candidato.mae }}</td>
-                    <td>{{ candidato.pai }}</td>
-                    <td>{{ candidato.email }}</td>
-                    <td>{{ candidato.cep }}</td>
-                    <td>{{ candidato.endereco }}</td>
-                    <td>{{ candidato.numero }}</td>
-                    <td>{{ candidato.bairro }}</td>
-                    <td>{{ candidato.cidade }}</td>
-                    <td>{{ candidato.estado }}</td>
-                    <td>{{ candidato.telefoneFixo }}</td>
-                    <td>{{ candidato.celular }}</td>
+                    <td>{{ candidato.cpf }}</td>                    
+                    <!--  <td>{{ candidato.dataNasc}}</td>--> <!-- | date:'mediumDate' -->
+                    <td>{{ candidato.sexo }}</td>                   
+                    <td>{{ candidato.estado }}</td>                    
                     <td>{{ candidato.altura }}</td>
                     <td>{{ candidato.peso }}</td>
-                    <td>{{ candidato.tipoSangue }}</td>
+                    <!-- <td>{{ candidato.tipoSangue }}</td>-->
                     <td>
                         <div *ngIf="candidato.tipoSanguineoId">
                             <a [routerLink]="['/tipo-sanguineo', candidato.tipoSanguineoId , 'view']" >{{ candidato.tipoSanguineoId }}</a>
@@ -79,20 +56,20 @@
                                     [routerLink]="['/candidato', candidato.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Ver</span>
                             </button>
 
                             <button type="submit"
                                     [routerLink]="['/candidato', candidato.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
                             </button>
 
                             <button type="submit" (click)="delete(candidato)"
                                     class="btn btn-danger btn-sm">
                                 <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Deletar</span>
                             </button>
                         </div>
                     </td>

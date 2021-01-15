@@ -1,12 +1,15 @@
 package com.wktech.bancosangue.web.rest;
 
 import com.wktech.bancosangue.service.CandidatoService;
-import com.wktech.bancosangue.web.rest.errors.BadRequestAlertException;
 import com.wktech.bancosangue.service.dto.CandidatoDTO;
-
+import com.wktech.bancosangue.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,14 +17,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  * REST controller for managing {@link com.wktech.bancosangue.domain.Candidato}.
@@ -29,7 +27,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class CandidatoResource {
-
     private final Logger log = LoggerFactory.getLogger(CandidatoResource.class);
 
     private static final String ENTITY_NAME = "candidato";
@@ -54,10 +51,24 @@ public class CandidatoResource {
     public ResponseEntity<CandidatoDTO> createCandidato(@RequestBody CandidatoDTO candidatoDTO) throws URISyntaxException {
         log.debug("REST request to save Candidato : {}", candidatoDTO);
         if (candidatoDTO.getId() != null) {
-            throw new BadRequestAlertException("A new candidato cannot already have an ID", ENTITY_NAME, "idexists");
+            throw new BadRequestAlertException("Não é possível cadastrar candidato com mesmo ID", ENTITY_NAME, "idexists");
         }
         CandidatoDTO result = candidatoService.save(candidatoDTO);
-        return ResponseEntity.created(new URI("/api/candidatoes/" + result.getId()))
+
+        return ResponseEntity
+            .created(new URI("/api/candidatoes/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    @PostMapping("/candidatoes/importar")
+    public ResponseEntity<CandidatoDTO> importCandidato(@RequestBody List<CandidatoDTO> candidatoDTO) throws URISyntaxException {
+        log.debug("REST request to save Candidato : {}", candidatoDTO);
+
+        CandidatoDTO result = candidatoService.importar(candidatoDTO);
+
+        return ResponseEntity
+            .created(new URI("/api/candidatoes/importar" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
@@ -78,7 +89,8 @@ public class CandidatoResource {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         CandidatoDTO result = candidatoService.save(candidatoDTO);
-        return ResponseEntity.ok()
+        return ResponseEntity
+            .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, candidatoDTO.getId().toString()))
             .body(result);
     }
@@ -120,6 +132,9 @@ public class CandidatoResource {
     public ResponseEntity<Void> deleteCandidato(@PathVariable Long id) {
         log.debug("REST request to delete Candidato : {}", id);
         candidatoService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity
+            .noContent()
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .build();
     }
 }

@@ -1,12 +1,21 @@
 package com.wktech.bancosangue.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 import com.wktech.bancosangue.BancoSangueApp;
 import com.wktech.bancosangue.domain.Candidato;
 import com.wktech.bancosangue.repository.CandidatoRepository;
 import com.wktech.bancosangue.service.CandidatoService;
 import com.wktech.bancosangue.service.dto.CandidatoDTO;
 import com.wktech.bancosangue.service.mapper.CandidatoMapper;
-
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +25,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-import javax.persistence.EntityManager;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Integration tests for the {@link CandidatoResource} REST controller.
@@ -33,7 +33,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WithMockUser
 public class CandidatoResourceIT {
-
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
 
@@ -43,8 +42,8 @@ public class CandidatoResourceIT {
     private static final String DEFAULT_RG = "AAAAAAAAAA";
     private static final String UPDATED_RG = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_DATA_NASC = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATA_NASC = LocalDate.now(ZoneId.systemDefault());
+    private static final Date DEFAULT_DATA_NASC = null;
+    private static final Date UPDATED_DATA_NASC = null;
 
     private static final String DEFAULT_SEXO = "AAAAAAAAAA";
     private static final String UPDATED_SEXO = "BBBBBBBBBB";
@@ -137,6 +136,7 @@ public class CandidatoResourceIT {
             .tipoSangue(DEFAULT_TIPO_SANGUE);
         return candidato;
     }
+
     /**
      * Create an updated entity for this test.
      *
@@ -178,9 +178,10 @@ public class CandidatoResourceIT {
         int databaseSizeBeforeCreate = candidatoRepository.findAll().size();
         // Create the Candidato
         CandidatoDTO candidatoDTO = candidatoMapper.toDto(candidato);
-        restCandidatoMockMvc.perform(post("/api/candidatoes")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(candidatoDTO)))
+        restCandidatoMockMvc
+            .perform(
+                post("/api/candidatoes").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(candidatoDTO))
+            )
             .andExpect(status().isCreated());
 
         // Validate the Candidato in the database
@@ -218,16 +219,16 @@ public class CandidatoResourceIT {
         CandidatoDTO candidatoDTO = candidatoMapper.toDto(candidato);
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restCandidatoMockMvc.perform(post("/api/candidatoes")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(candidatoDTO)))
+        restCandidatoMockMvc
+            .perform(
+                post("/api/candidatoes").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(candidatoDTO))
+            )
             .andExpect(status().isBadRequest());
 
         // Validate the Candidato in the database
         List<Candidato> candidatoList = candidatoRepository.findAll();
         assertThat(candidatoList).hasSize(databaseSizeBeforeCreate);
     }
-
 
     @Test
     @Transactional
@@ -236,7 +237,8 @@ public class CandidatoResourceIT {
         candidatoRepository.saveAndFlush(candidato);
 
         // Get all the candidatoList
-        restCandidatoMockMvc.perform(get("/api/candidatoes?sort=id,desc"))
+        restCandidatoMockMvc
+            .perform(get("/api/candidatoes?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(candidato.getId().intValue())))
@@ -260,7 +262,7 @@ public class CandidatoResourceIT {
             .andExpect(jsonPath("$.[*].peso").value(hasItem(DEFAULT_PESO.doubleValue())))
             .andExpect(jsonPath("$.[*].tipoSangue").value(hasItem(DEFAULT_TIPO_SANGUE)));
     }
-    
+
     @Test
     @Transactional
     public void getCandidato() throws Exception {
@@ -268,7 +270,8 @@ public class CandidatoResourceIT {
         candidatoRepository.saveAndFlush(candidato);
 
         // Get the candidato
-        restCandidatoMockMvc.perform(get("/api/candidatoes/{id}", candidato.getId()))
+        restCandidatoMockMvc
+            .perform(get("/api/candidatoes/{id}", candidato.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(candidato.getId().intValue()))
@@ -292,12 +295,12 @@ public class CandidatoResourceIT {
             .andExpect(jsonPath("$.peso").value(DEFAULT_PESO.doubleValue()))
             .andExpect(jsonPath("$.tipoSangue").value(DEFAULT_TIPO_SANGUE));
     }
+
     @Test
     @Transactional
     public void getNonExistingCandidato() throws Exception {
         // Get the candidato
-        restCandidatoMockMvc.perform(get("/api/candidatoes/{id}", Long.MAX_VALUE))
-            .andExpect(status().isNotFound());
+        restCandidatoMockMvc.perform(get("/api/candidatoes/{id}", Long.MAX_VALUE)).andExpect(status().isNotFound());
     }
 
     @Test
@@ -334,9 +337,10 @@ public class CandidatoResourceIT {
             .tipoSangue(UPDATED_TIPO_SANGUE);
         CandidatoDTO candidatoDTO = candidatoMapper.toDto(updatedCandidato);
 
-        restCandidatoMockMvc.perform(put("/api/candidatoes")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(candidatoDTO)))
+        restCandidatoMockMvc
+            .perform(
+                put("/api/candidatoes").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(candidatoDTO))
+            )
             .andExpect(status().isOk());
 
         // Validate the Candidato in the database
@@ -373,9 +377,10 @@ public class CandidatoResourceIT {
         CandidatoDTO candidatoDTO = candidatoMapper.toDto(candidato);
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
-        restCandidatoMockMvc.perform(put("/api/candidatoes")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(candidatoDTO)))
+        restCandidatoMockMvc
+            .perform(
+                put("/api/candidatoes").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(candidatoDTO))
+            )
             .andExpect(status().isBadRequest());
 
         // Validate the Candidato in the database
@@ -392,8 +397,8 @@ public class CandidatoResourceIT {
         int databaseSizeBeforeDelete = candidatoRepository.findAll().size();
 
         // Delete the candidato
-        restCandidatoMockMvc.perform(delete("/api/candidatoes/{id}", candidato.getId())
-            .accept(MediaType.APPLICATION_JSON))
+        restCandidatoMockMvc
+            .perform(delete("/api/candidatoes/{id}", candidato.getId()).accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item

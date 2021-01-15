@@ -1,56 +1,104 @@
 package com.wktech.bancosangue.service.dto;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  * A DTO for the {@link com.wktech.bancosangue.domain.Candidato} entity.
  */
 public class CandidatoDTO implements Serializable {
-    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
+    @JsonProperty("nome")
     private String nome;
 
+    @JsonProperty("cpf")
     private String cpf;
 
+    @JsonProperty("rg")
     private String rg;
 
-    private LocalDate dataNasc;
+    @JsonProperty("data_nasc")
+    @JsonFormat(pattern = "dd/mm/yyyy", shape = JsonFormat.Shape.STRING)
+    private Date dataNasc;
 
+    @JsonProperty("sexo")
     private String sexo;
 
+    @JsonProperty("mae")
     private String mae;
 
+    @JsonProperty("pai")
     private String pai;
 
+    @JsonProperty("email")
     private String email;
 
+    @JsonProperty("cep")
     private String cep;
 
+    @JsonProperty("endereco")
     private String endereco;
 
+    @JsonProperty("numero")
     private String numero;
 
+    @JsonProperty("bairro")
     private String bairro;
 
+    @JsonProperty("cidade")
     private String cidade;
 
+    @JsonProperty("estado")
     private String estado;
 
+    @JsonProperty("telefone_fixo")
     private String telefoneFixo;
 
+    @JsonProperty("celular")
     private String celular;
 
+    @JsonProperty("altura")
     private Double altura;
 
+    @JsonProperty("peso")
     private Double peso;
 
+    @JsonProperty("tipo_sanguineo")
     private String tipoSangue;
 
-
     private Long tipoSanguineoId;
-    
+
+    public CandidatoDTO() {}
+
+    public CandidatoDTO(String data) {
+        String dataFormatada = dataParaMySQL(data);
+        this.dataNasc = Date.valueOf(dataFormatada);
+        System.out.println(this.dataNasc);
+    }
+
+    public String dataParaMySQL(String data) {
+        String ret = " - - ";
+        try {
+            data = data.replace("/", "");
+        } catch (Exception e) {}
+        try {
+            data = data.replace("-", "");
+        } catch (Exception e) {}
+        try {
+            data = data.substring(4, 8) + "-" + data.substring(2, 4) + "-" + data.substring(0, 2);
+        } catch (Exception e) {}
+        ret = data;
+        return ret;
+    }
+
     public Long getId() {
         return id;
     }
@@ -83,11 +131,11 @@ public class CandidatoDTO implements Serializable {
         this.rg = rg;
     }
 
-    public LocalDate getDataNasc() {
-        return dataNasc;
+    public Date getDataNasc() {
+        return this.dataNasc;
     }
 
-    public void setDataNasc(LocalDate dataNasc) {
+    public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
 
@@ -262,5 +310,10 @@ public class CandidatoDTO implements Serializable {
             ", tipoSangue='" + getTipoSangue() + "'" +
             ", tipoSanguineoId=" + getTipoSanguineoId() +
             "}";
+    }
+
+    public static void main(String args[]) {
+        CandidatoDTO can = new CandidatoDTO();
+        System.out.println(can.dataParaMySQL("18/03/1990"));
     }
 }
