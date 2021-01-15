@@ -1,4 +1,4 @@
-# bancoSangue
+# bancoSangue WK
 
 Este aplicativo foi gerado utilizando JHipster 6.10.5.
 
