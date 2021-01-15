@@ -6,7 +6,9 @@ Este aplicativo foi gerado utilizando JHipster 6.10.5.
 
 Projeto possui API e front-end Angular de forma monolítica, sobe o ambiente ao mesmo tempo.
 Sistema possui dois logins: Admin e User com perfis diferentes
-Para importar os dados basta acessar como admin e acionar a opção API e selecionar o método importCandidato e colocar os dados e clicar em executar
+Para importar os dados basta acessar como admin e acionar a opção API e selecionar o método importCandidato e colocar os dados do arquivo json e clicar em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados de Candidatos
+
+Obs.: Os Relatórios estão disponíveis no menu Entidades com o nome de cada um deles.
 
 Antes de executar os passos a seguir o banco de dados MySQL deve existir na máquina que será executada o projeto e tem que ter um usuário root e senha root (com privilégios adm) nesta instância local.
 
@@ -16,6 +18,7 @@ Antes de executar os passos a seguir o banco de dados MySQL deve existir na máq
 3. Acesse o diretório api-banco-sangue
 4. Digite ./mvnw
 5. Aguarde até a finalização e execute o projeto no caminho:
+   http://localhost:8080
 
 ## Desenvolvimento (caso não possua configuração node, execute os passos com npm )
 
