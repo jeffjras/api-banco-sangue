@@ -12,8 +12,10 @@ Antes de executar os passos a seguir o banco de dados MySQL deve existir na máq
 1. Crie um diretorio onde deseje configurar o projeto
 2. Clone o projeto usando git:
    https://github.com/jeffjras/api-banco-sangue.git
-3. Assim que concluir o clone, via linha de comando no diretório do projeto chamado api-banco-sangue,
-   Execute ./mvnw
+3. Assim que concluir o clone, via linha de comando no diretório do projeto chamado api-banco-sangue, execute na raiz do projeto
+   ```
+   ./mvnw
+   ```
 4. Aguarde até a finalização e acesse o projeto por um navegador de sua preferência:
    http://localhost:8080
    
