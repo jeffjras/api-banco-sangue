@@ -78,10 +78,8 @@ public class CandidatoDTO implements Serializable {
 
     public CandidatoDTO() {}
 
-    public CandidatoDTO(String data) {
-        String dataFormatada = dataParaMySQL(data);
-        this.dataNasc = Date.valueOf(dataFormatada);
-        System.out.println(this.dataNasc);
+    public CandidatoDTO(String nome) {
+        this.nome = nome;
     }
 
     public String dataParaMySQL(String data) {

@@ -8,6 +8,7 @@ import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -105,6 +107,56 @@ public class CandidatoResource {
     public ResponseEntity<List<CandidatoDTO>> getAllCandidatoes(Pageable pageable) {
         log.debug("REST request to get a page of Candidatoes");
         Page<CandidatoDTO> page = candidatoService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/qtde/estado")
+    public ResponseEntity<List<CandidatoDTO>> getQuantidadeCandidatoesPorEstado(Pageable pageable) throws URISyntaxException {
+        log.debug("REST request to get a page of Candidatoes");
+
+        @SuppressWarnings("unchecked")
+        Page<CandidatoDTO> page = (Page<CandidatoDTO>) candidatoService.findQuantidadeCandidatoPorEstado(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/imc/faixa")
+    public ResponseEntity<List<CandidatoDTO>> getImcMedioEmCadaFaixaEtaria(Pageable pageable) {
+        log.debug("REST request to get a page of Candidatoes com imc médio por faixa");
+        Page<CandidatoDTO> page = candidatoService.findImcMedioEmCadaFaixa(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/percentual/obesos/homens")
+    public ResponseEntity<List<CandidatoDTO>> getPercentualObesosHomens(Pageable pageable) {
+        log.debug("REST request to get a page of Candidatoes");
+        Page<CandidatoDTO> page = candidatoService.findPercentualObesosHomens(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/percentual/obesos/mulheres")
+    public ResponseEntity<List<CandidatoDTO>> getPercentualObesosMulheres(Pageable pageable) {
+        log.debug("REST request to get a page of Candidatoes");
+        Page<CandidatoDTO> page = candidatoService.findPercentualObesosMulheres(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/media/idade/tiposangue")
+    public ResponseEntity<List<CandidatoDTO>> getMediaIdadeTipoSanguineo(Pageable pageable) {
+        log.debug("REST request to get a page of Candidatoes");
+        Page<CandidatoDTO> page = candidatoService.findMediaIdadePorTipoSanguineo(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/candidatoes/quantidade/doador/receptor")
+    public ResponseEntity<List<CandidatoDTO>> getQuantidadeDoadorPorTipoReceptor(Pageable pageable) {
+        log.debug("REST request to get a page of Candidatoes");
+        Page<CandidatoDTO> page = candidatoService.findQuantidadeDoadoresParaCadaTipoReceptor(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

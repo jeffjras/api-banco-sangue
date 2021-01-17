@@ -22,7 +22,7 @@
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
                         <span jhiTranslate="global.menu.entities.main">
-                            Tabelas
+                            Entidades
                         </span>
                     </span>
                 </a>
@@ -63,31 +63,37 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="relatorio-qtde-estado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="">Quantidade de Candidatos por Estado</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="relatorio-imc-medio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="">IMC Médio em cada Faixa de Idade</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="relatorio-obesos-homens" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="">Percentual de Obesos por Sexo</span>
+                            <span jhiTranslate="">Percentual de Homens Obesos</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="relatorio-obesos-mulheres" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="">Percentual de Mulheres Obesas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="relatorio-media-idade" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="">Média de Idade para cada Tipo Sanguíneo</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="relatorio-qtde-doadores-tipo-receptor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="">Quantidade de Possíveis Doadores para Cada Tipo Receptor</span>
                         </a>

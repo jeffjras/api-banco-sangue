@@ -4,12 +4,19 @@ import com.wktech.bancosangue.domain.Candidato;
 import com.wktech.bancosangue.repository.CandidatoRepository;
 import com.wktech.bancosangue.service.dto.CandidatoDTO;
 import com.wktech.bancosangue.service.mapper.CandidatoMapper;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +31,9 @@ public class CandidatoService {
     private final CandidatoRepository candidatoRepository;
 
     private final CandidatoMapper candidatoMapper;
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     public CandidatoService(CandidatoRepository candidatoRepository, CandidatoMapper candidatoMapper) {
         this.candidatoRepository = candidatoRepository;
@@ -116,10 +126,66 @@ public class CandidatoService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    @Transactional(readOnly = true)
+
+    //@Transactional(readOnly = true)
     public Page<CandidatoDTO> findQuantidadeCandidatoPorEstado(Pageable pageable) {
-        log.debug("Request to get all Candidatoes");
-        return candidatoRepository.findAll(pageable).map(candidatoMapper::toDto);
+        log.debug("Busca a quantidade de candidatos por estado");
+
+        List<Object[]> splitUpNames = Arrays
+            .asList("John Woo", "Jeff Dean", "Josh Bloch", "Josh Long")
+            .stream()
+            .map(name -> name.split(" "))
+            .collect(Collectors.toList());
+
+        splitUpNames.forEach(name -> log.info(String.format("Inserting customer record for %s %s", name[0], name[1])));
+
+        /*
+         * jdbcTemplate.query(
+         * "SELECT estado, count(nome) as qtde FROM candidato group by estado ", new
+         * Object[] { "Resultado" }, (rs, rowNum) -> new
+         * CandidatoDTO(rs.getString("nome")) ).forEach(customer ->
+         * log.info(customer.toString()));
+         */
+
+        /*
+         * jdbcTemplate.queryForMap(
+         * "SELECT estado, count(nome) as qtde FROM candidato group by estado ", "","");
+         */
+
+        /*
+         * int result = jdbcTemplate.queryForObject(
+         * "SELECT estado, count(nome) as qtde FROM candidato group by estado",
+         * Integer.class);
+         */
+
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", 1);
+        jdbcTemplate.queryForList("SELECT estado as qtde FROM candidato ", String.class);
+
+        /*
+         * SqlParameterSource namedParameters = new
+         * MapSqlParameterSource().addValue("id", "MG"); jdbcTemplate.queryForMap(
+         * " SELECT estado, count(nome) as qtde FROM candidato where estado = :id ",
+         * namedParameters, String.class);
+         */
+
+        /*
+         * jdbcTemplate.query(
+         * "SELECT estado, count(nome) as qtde FROM candidato group by estado ", new
+         * Object[] { "Resultado" }, (rs, rowNum) -> new
+         * CandidatoDTO(rs.getString("nome")) ).forEach(customer ->
+         * log.info(customer.toString()));
+         */
+
+        //return (Page<CandidatoDTO>) jdbcTemplate;
+        //return candidatoRepository.findQuantidadeCandidatoPorEstado(pageable).map(candidatoMapper::toDto);
+        /*
+         * List<Candidato> listCand =
+         * candidatoRepository.findQuantidadeCandidatoPorEstado(pageable);
+         * List<CandidatoDTO> listCandidatoDTO = new ArrayList<CandidatoDTO>(); for
+         * (Candidato cand : listCand) { CandidatoDTO candDTO =
+         * candidatoMapper.toDto(cand); listCandidatoDTO.add(candDTO); }
+         */
+        return candidatoRepository.findQuantidadeCandidatoPorEstado(pageable).map(candidatoMapper::toDto);
     }
 
     /**
@@ -130,8 +196,8 @@ public class CandidatoService {
      */
     @Transactional(readOnly = true)
     public Page<CandidatoDTO> findImcMedioEmCadaFaixa(Pageable pageable) {
-        log.debug("Request to get all Candidatoes");
-        return candidatoRepository.findAll(pageable).map(candidatoMapper::toDto);
+        log.debug("Request to get all Candidatoes com Imc medio em cada faixa");
+        return candidatoRepository.findImcMedioEmCadaFaixaIdade(pageable).map(candidatoMapper::toDto);
     }
 
     /**
@@ -141,9 +207,21 @@ public class CandidatoService {
      * @return the list of entities.
      */
     @Transactional(readOnly = true)
-    public Page<CandidatoDTO> findPercentualObesoPorSexo(Pageable pageable) {
-        log.debug("Request to get all Candidatoes");
-        return candidatoRepository.findAll(pageable).map(candidatoMapper::toDto);
+    public Page<CandidatoDTO> findPercentualObesosHomens(Pageable pageable) {
+        log.debug("Request to get all Candidatoes com Imc medio em cada faixa");
+        return candidatoRepository.findPercentualObesosHomens(pageable).map(candidatoMapper::toDto);
+    }
+
+    /**
+     *
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Transactional(readOnly = true)
+    public Page<CandidatoDTO> findPercentualObesosMulheres(Pageable pageable) {
+        log.debug("Request to get all Candidatoes com Imc medio em cada faixa");
+        return candidatoRepository.findPercentualObesosMulheres(pageable).map(candidatoMapper::toDto);
     }
 
     /**
@@ -155,7 +233,7 @@ public class CandidatoService {
     @Transactional(readOnly = true)
     public Page<CandidatoDTO> findMediaIdadePorTipoSanguineo(Pageable pageable) {
         log.debug("Request to get all Candidatoes");
-        return candidatoRepository.findAll(pageable).map(candidatoMapper::toDto);
+        return candidatoRepository.findMediaIdadeEmCadaTipoSanguineo(pageable).map(candidatoMapper::toDto);
     }
 
     /**
