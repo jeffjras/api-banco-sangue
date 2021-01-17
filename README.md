@@ -23,7 +23,7 @@ Antes de executar os passos a seguir o banco de dados MySQL deve existir na máq
    
 ## Importação dos dados de Candidato
 
-Para importar os dados de Candidatos acesse o sistema como administrador e escolhar a opção do item de menu API, em seguida localize e clique no método POST chamado /api/candidatoes/importar e logo em seguida clique no botão "Try Out" para habilitar a edição e então insira os dados do arquivo json, e por fim, clique em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados carregados de Candidatos 
+Para importar os dados de Candidatos acesse o sistema como administrador e escolhar a opção do item de menu API, em seguida localize e clique no método POST chamado /api/candidatoes/importar e logo em seguida clique no botão "Try it Out" para habilitar a edição e então insira os dados do arquivo json, e por fim, clique em executar. Em seguida pelo menu Entidades -> Candidatos é possível visualizar os dados carregados de Candidatos 
 
 Observação: Os Relatórios estão disponíveis no menu Entidades com o nome de cada um deles.   
 
