@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "relatorioQtdeDoadoresParaCadaTipoReceptor": {
+      "home": {
+        "title": "Relatorio Qtde Doadores Para Cada Tipo Receptors",
+        "createLabel": "Criar novo Relatorio Qtde Doadores Para Cada Tipo Receptor",
+        "createOrEditLabel": "Criar ou editar Relatorio Qtde Doadores Para Cada Tipo Receptor",
+        "notFound": "Nenhum Relatorio Qtde Doadores Para Cada Tipo Receptor encontrado"
+      },
+      "created": "Um novo Relatorio Qtde Doadores Para Cada Tipo Receptor foi criado com o identificador {{ param }}",
+      "updated": "Um Relatorio Qtde Doadores Para Cada Tipo Receptor foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Relatorio Qtde Doadores Para Cada Tipo Receptor foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Relatorio Qtde Doadores Para Cada Tipo Receptor {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Qtde Doadores Para Cada Tipo Receptor"
+      },
+      "sangue": "Sangue",
+      "totalDoador": "Total Doador"
+    }
+  }
+}

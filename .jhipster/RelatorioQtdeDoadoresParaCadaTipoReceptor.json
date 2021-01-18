@@ -1,0 +1,24 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "sangue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalDoador",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20210118014820",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "relatorio_qtde_doadores_para_cada_tipo_receptor",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "infinite-scroll"
+}

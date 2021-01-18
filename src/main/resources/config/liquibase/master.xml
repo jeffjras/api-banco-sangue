@@ -18,6 +18,12 @@
     <include file="config/liquibase/changelog/20210112023150_added_entity_DoacaoTipoSanguineo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210112023250_added_entity_RecepcaoTipoSanguineo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210112023350_added_entity_Candidato.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210117224937_added_entity_RelatorioQtdCandPorEstado.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210118012925_added_entity_RelatorioImcMedioFaixaIdade.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210118013357_added_entity_RelatorioPercObesosHomens.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210118013617_added_entity_RelatorioPercObesosMulheres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210118014312_added_entity_RelatorioMediaIdadeTipoSangue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210118014820_added_entity_RelatorioQtdeDoadoresParaCadaTipoReceptor.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210112023050_added_entity_constraints_TipoSanguineo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210112023350_added_entity_constraints_Candidato.xml" relativeToChangelogFile="false"/>

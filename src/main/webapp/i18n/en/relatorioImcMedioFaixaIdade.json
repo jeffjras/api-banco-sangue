@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "relatorioImcMedioFaixaIdade": {
+      "home": {
+        "title": "Relatorio Imc Medio Faixa Idades",
+        "createLabel": "Create a new Relatorio Imc Medio Faixa Idade",
+        "createOrEditLabel": "Create or edit a Relatorio Imc Medio Faixa Idade",
+        "notFound": "No Relatorio Imc Medio Faixa Idades found"
+      },
+      "created": "A new Relatorio Imc Medio Faixa Idade is created with identifier {{ param }}",
+      "updated": "A Relatorio Imc Medio Faixa Idade is updated with identifier {{ param }}",
+      "deleted": "A Relatorio Imc Medio Faixa Idade is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Relatorio Imc Medio Faixa Idade {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Imc Medio Faixa Idade"
+      },
+      "faixaEtaria": "Faixa Etaria",
+      "imcMedio": "Imc Medio"
+    }
+  }
+}

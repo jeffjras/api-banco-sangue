@@ -1,0 +1,35 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.home.title">Relatorio Imc Medio Faixa Idades</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="relatorioImcMedioFaixaIdades?.length === 0">
+        <span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.home.notFound">No relatorioImcMedioFaixaIdades found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="relatorioImcMedioFaixaIdades && relatorioImcMedioFaixaIdades.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">                    
+                    <th scope="col"  jhiSortBy="faixaEtaria"><span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.faixaEtaria">Faixa Etaria</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imcMedio"><span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.imcMedio">Imc Medio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let relatorioImcMedioFaixaIdade of relatorioImcMedioFaixaIdades ;trackBy: trackId">                    
+                    <td>{{ relatorioImcMedioFaixaIdade.faixaEtaria }}</td>
+                    <td>{{ relatorioImcMedioFaixaIdade.imcMedio }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">                            
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

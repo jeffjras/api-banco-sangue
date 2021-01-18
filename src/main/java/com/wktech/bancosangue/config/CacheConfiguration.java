@@ -54,6 +54,12 @@ public class CacheConfiguration {
             createCache(cm, com.wktech.bancosangue.domain.RecepcaoTipoSanguineo.class.getName());
             createCache(cm, com.wktech.bancosangue.domain.RecepcaoTipoSanguineo.class.getName() + ".listaTipoSanguineos");
             createCache(cm, com.wktech.bancosangue.domain.Candidato.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioQtdCandPorEstado.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioImcMedioFaixaIdade.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioPercObesosHomens.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioPercObesosMulheres.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioMediaIdadeTipoSangue.class.getName());
+            createCache(cm, com.wktech.bancosangue.domain.RelatorioQtdeDoadoresParaCadaTipoReceptor.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

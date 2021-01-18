@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "relatorioMediaIdadeTipoSangue": {
+      "home": {
+        "title": "Relatorio Media Idade Tipo Sangues",
+        "createLabel": "Criar novo Relatorio Media Idade Tipo Sangue",
+        "createOrEditLabel": "Criar ou editar Relatorio Media Idade Tipo Sangue",
+        "notFound": "Nenhum Relatorio Media Idade Tipo Sangue encontrado"
+      },
+      "created": "Um novo Relatorio Media Idade Tipo Sangue foi criado com o identificador {{ param }}",
+      "updated": "Um Relatorio Media Idade Tipo Sangue foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Relatorio Media Idade Tipo Sangue foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Relatorio Media Idade Tipo Sangue {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Media Idade Tipo Sangue"
+      },
+      "tipoSangue": "Tipo Sangue",
+      "mediaTipo": "Media Tipo"
+    }
+  }
+}

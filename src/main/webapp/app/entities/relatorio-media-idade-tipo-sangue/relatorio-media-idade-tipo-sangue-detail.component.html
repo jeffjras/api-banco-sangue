@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="relatorioMediaIdadeTipoSangue">
+            <h2><span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.detail.title">Relatorio Media Idade Tipo Sangue</span> {{ relatorioMediaIdadeTipoSangue.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.tipoSangue">Tipo Sangue</span></dt>
+                <dd>
+                    <span>{{ relatorioMediaIdadeTipoSangue.tipoSangue }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.mediaTipo">Media Tipo</span></dt>
+                <dd>
+                    <span>{{ relatorioMediaIdadeTipoSangue.mediaTipo }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/relatorio-media-idade-tipo-sangue', relatorioMediaIdadeTipoSangue.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

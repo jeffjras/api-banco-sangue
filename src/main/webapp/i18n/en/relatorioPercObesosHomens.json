@@ -1,0 +1,22 @@
+{
+  "bancoSangueApp": {
+    "relatorioPercObesosHomens": {
+      "home": {
+        "title": "Relatorio Perc Obesos Homens",
+        "createLabel": "Create a new Relatorio Perc Obesos Homens",
+        "createOrEditLabel": "Create or edit a Relatorio Perc Obesos Homens",
+        "notFound": "No Relatorio Perc Obesos Homens found"
+      },
+      "created": "A new Relatorio Perc Obesos Homens is created with identifier {{ param }}",
+      "updated": "A Relatorio Perc Obesos Homens is updated with identifier {{ param }}",
+      "deleted": "A Relatorio Perc Obesos Homens is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Relatorio Perc Obesos Homens {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Perc Obesos Homens"
+      },
+      "percentual": "Percentual"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "bancoSangueApp": {
+    "relatorioQtdCandPorEstado": {
+      "home": {
+        "title": "Relatorio Qtd Cand Por Estados",
+        "createLabel": "Criar novo Relatorio Qtd Cand Por Estado",
+        "createOrEditLabel": "Criar ou editar Relatorio Qtd Cand Por Estado",
+        "notFound": "Nenhum Relatorio Qtd Cand Por Estado encontrado"
+      },
+      "created": "Um novo Relatorio Qtd Cand Por Estado foi criado com o identificador {{ param }}",
+      "updated": "Um Relatorio Qtd Cand Por Estado foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Relatorio Qtd Cand Por Estado foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Relatorio Qtd Cand Por Estado {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Qtd Cand Por Estado"
+      },
+      "qtde": "Qtde",
+      "estado": "Estado"
+    }
+  }
+}

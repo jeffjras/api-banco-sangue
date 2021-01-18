@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="relatorioQtdCandPorEstado">
+            <h2><span jhiTranslate="bancoSangueApp.relatorioQtdCandPorEstado.detail.title">Relatorio Qtd Cand Por Estado</span> {{ relatorioQtdCandPorEstado.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bancoSangueApp.relatorioQtdCandPorEstado.qtde">Qtde</span></dt>
+                <dd>
+                    <span>{{ relatorioQtdCandPorEstado.qtde }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.relatorioQtdCandPorEstado.estado">Estado</span></dt>
+                <dd>
+                    <span>{{ relatorioQtdCandPorEstado.estado }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/relatorio-qtd-cand-por-estado', relatorioQtdCandPorEstado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

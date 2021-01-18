@@ -1,0 +1,37 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.home.title">Relatorio Media Idade Tipo Sangues</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="relatorioMediaIdadeTipoSangues?.length === 0">
+        <span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.home.notFound">No relatorioMediaIdadeTipoSangues found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="relatorioMediaIdadeTipoSangues && relatorioMediaIdadeTipoSangues.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tipoSangue"><span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.tipoSangue">Tipo Sangue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mediaTipo"><span jhiTranslate="bancoSangueApp.relatorioMediaIdadeTipoSangue.mediaTipo">Media Tipo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let relatorioMediaIdadeTipoSangue of relatorioMediaIdadeTipoSangues ;trackBy: trackId">
+                    <td><a [routerLink]="['/relatorio-media-idade-tipo-sangue', relatorioMediaIdadeTipoSangue.id, 'view']">{{ relatorioMediaIdadeTipoSangue.id }}</a></td>
+                    <td>{{ relatorioMediaIdadeTipoSangue.tipoSangue }}</td>
+                    <td>{{ relatorioMediaIdadeTipoSangue.mediaTipo }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">                           
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

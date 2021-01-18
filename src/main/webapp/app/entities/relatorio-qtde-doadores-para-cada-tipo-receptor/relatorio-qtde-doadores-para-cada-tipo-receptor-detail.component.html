@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="relatorioQtdeDoadoresParaCadaTipoReceptor">
+            <h2><span jhiTranslate="bancoSangueApp.relatorioQtdeDoadoresParaCadaTipoReceptor.detail.title">Relatorio Qtde Doadores Para Cada Tipo Receptor</span> {{ relatorioQtdeDoadoresParaCadaTipoReceptor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bancoSangueApp.relatorioQtdeDoadoresParaCadaTipoReceptor.sangue">Sangue</span></dt>
+                <dd>
+                    <span>{{ relatorioQtdeDoadoresParaCadaTipoReceptor.sangue }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.relatorioQtdeDoadoresParaCadaTipoReceptor.totalDoador">Total Doador</span></dt>
+                <dd>
+                    <span>{{ relatorioQtdeDoadoresParaCadaTipoReceptor.totalDoador }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/relatorio-qtde-doadores-para-cada-tipo-receptor', relatorioQtdeDoadoresParaCadaTipoReceptor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

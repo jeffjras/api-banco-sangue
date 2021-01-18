@@ -11,6 +11,12 @@
         "doacaoTipoSanguineo": "Doacao Tipo Sanguineo",
         "recepcaoTipoSanguineo": "Recepcao Tipo Sanguineo",
         "candidato": "Candidato",
+        "relatorioQtdCandPorEstado": "Relatorio Qtd Cand Por Estado",
+        "relatorioImcMedioFaixaIdade": "Relatorio Imc Medio Faixa Idade",
+        "relatorioPercObesosHomens": "Relatorio Perc Obesos Homens",
+        "relatorioPercObesosMulheres": "Relatorio Perc Obesos Mulheres",
+        "relatorioMediaIdadeTipoSangue": "Relatorio Media Idade Tipo Sangue",
+        "relatorioQtdeDoadoresParaCadaTipoReceptor": "Relatorio Qtde Doadores Para Cada Tipo Receptor",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

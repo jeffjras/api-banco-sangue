@@ -1,0 +1,22 @@
+{
+  "bancoSangueApp": {
+    "relatorioPercObesosHomens": {
+      "home": {
+        "title": "Relatorio Perc Obesos Homens",
+        "createLabel": "Criar novo Relatorio Perc Obesos Homens",
+        "createOrEditLabel": "Criar ou editar Relatorio Perc Obesos Homens",
+        "notFound": "Nenhum Relatorio Perc Obesos Homens encontrado"
+      },
+      "created": "Um novo Relatorio Perc Obesos Homens foi criado com o identificador {{ param }}",
+      "updated": "Um Relatorio Perc Obesos Homens foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Relatorio Perc Obesos Homens foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Relatorio Perc Obesos Homens {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Perc Obesos Homens"
+      },
+      "percentual": "Percentual"
+    }
+  }
+}

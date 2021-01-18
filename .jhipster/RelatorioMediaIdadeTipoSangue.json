@@ -1,0 +1,24 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "tipoSangue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mediaTipo",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "changelogDate": "20210118014312",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "relatorio_media_idade_tipo_sangue",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": true,
+  "pagination": "infinite-scroll"
+}

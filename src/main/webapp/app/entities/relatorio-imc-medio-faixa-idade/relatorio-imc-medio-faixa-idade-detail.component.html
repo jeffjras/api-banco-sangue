@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="relatorioImcMedioFaixaIdade">
+            <h2><span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.detail.title">Relatorio Imc Medio Faixa Idade</span> {{ relatorioImcMedioFaixaIdade.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.faixaEtaria">Faixa Etaria</span></dt>
+                <dd>
+                    <span>{{ relatorioImcMedioFaixaIdade.faixaEtaria }}</span>
+                </dd>
+                <dt><span jhiTranslate="bancoSangueApp.relatorioImcMedioFaixaIdade.imcMedio">Imc Medio</span></dt>
+                <dd>
+                    <span>{{ relatorioImcMedioFaixaIdade.imcMedio }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/relatorio-imc-medio-faixa-idade', relatorioImcMedioFaixaIdade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

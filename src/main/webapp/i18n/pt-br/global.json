@@ -6,11 +6,17 @@
       "home": "Início",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entidades",
+        "main": "Relatórios",
         "tipoSanguineo": "Tipo Sanguineo",
         "doacaoTipoSanguineo": "Doacao Tipo Sanguineo",
         "recepcaoTipoSanguineo": "Recepcao Tipo Sanguineo",
         "candidato": "Candidato",
+        "relatorioQtdCandPorEstado": "Quantidade de Candidatos Por Estado",
+        "relatorioImcMedioFaixaIdade": "IMC Medio por Faixa de Idade",
+        "relatorioPercObesosHomens": "Percentul de Obesos Homens",
+        "relatorioPercObesosMulheres": "Percentual de Obesos Mulheres",
+        "relatorioMediaIdadeTipoSangue": "Media de Idade para cada Tipo de Sangue",
+        "relatorioQtdeDoadoresParaCadaTipoReceptor": "Qtde. de Doadores para cada Tipo Receptor",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -140,5 +146,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "Este é o rodapé da página"
+  "footer": "WK Tech - Teste Banco Sangue"
 }

@@ -1,0 +1,22 @@
+{
+  "bancoSangueApp": {
+    "relatorioPercObesosMulheres": {
+      "home": {
+        "title": "Relatorio Perc Obesos Mulheres",
+        "createLabel": "Criar novo Relatorio Perc Obesos Mulheres",
+        "createOrEditLabel": "Criar ou editar Relatorio Perc Obesos Mulheres",
+        "notFound": "Nenhum Relatorio Perc Obesos Mulheres encontrado"
+      },
+      "created": "Um novo Relatorio Perc Obesos Mulheres foi criado com o identificador {{ param }}",
+      "updated": "Um Relatorio Perc Obesos Mulheres foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Relatorio Perc Obesos Mulheres foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Relatorio Perc Obesos Mulheres {{ id }}?"
+      },
+      "detail": {
+        "title": "Relatorio Perc Obesos Mulheres"
+      },
+      "percentual": "Percentual"
+    }
+  }
+}

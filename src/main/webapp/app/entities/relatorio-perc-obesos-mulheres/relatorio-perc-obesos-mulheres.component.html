@@ -1,0 +1,36 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bancoSangueApp.relatorioPercObesosMulheres.home.title">Relatorio Perc Obesos Mulheres</span>       
+        <span>
+        	<a [routerLink]="['/candidatoes/qtde/estado', '', 'view']">Relatório</a>
+        </span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="relatorioPercObesosMulheres?.length === 0">
+        <span jhiTranslate="bancoSangueApp.relatorioPercObesosMulheres.home.notFound">No relatorioPercObesosMulheres found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="relatorioPercObesosMulheres && relatorioPercObesosMulheres.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">                    
+                    <th scope="col"  jhiSortBy="percentual"><span jhiTranslate="bancoSangueApp.relatorioPercObesosMulheres.percentual">Percentual</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let relatorioPercObesosMulheres of relatorioPercObesosMulheres ;trackBy: trackId">                    
+                    <td>{{ relatorioPercObesosMulheres.percentual }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
